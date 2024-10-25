@@ -1,0 +1,187 @@
+/* Contenedor principal del layout con sidebar y contenido */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar de 250px y contenido restante */
+  height: 100vh;
+  position: relative; /* Para asegurarse de que los elementos internos se ajusten */
+}
+
+/* Fondo oscuro transparente para la galería */
+.gallery-overlay {
+  position: fixed;
+  top: 0;
+  left: 250px; /* Se ajusta para empezar después del sidebar */
+  width: calc(100vw - 250px); /* Se resta el ancho del sidebar para evitar que lo pise */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con transparencia */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: default; /* Cambia el cursor a puntero normal */
+
+  overflow: hidden; /* Asegurarse de que no haya scroll en la galería */
+}
+
+/* Contenedor interno de la galería */
+.gallery-container {
+  background-color: rgba(30, 30, 30, 0.9);
+  padding: 50px;
+  border-radius: 10px;
+  width: 80%; /* Ajustar el ancho para ocupar parte de la segunda columna */
+  height: 80vh; /* Ajustar la altura y evitar scroll */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centrar verticalmente */
+  position: relative;
+  overflow: hidden; /* Eliminar el scrolleo */
+  cursor: default; /* Cambia el cursor a puntero normal */
+
+}
+
+/* Botón de cerrar */
+.close-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Selector de años */
+.year-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+
+  position: absolute;
+  top: 0; 
+}
+
+.year-selector button {
+  background-color: transparent;
+  border: 3px solid white;
+  color: white;
+  padding: 15px;
+  margin: 15px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.year-selector button.active {
+  background-color: white;
+  color: black;
+}
+
+.year-selector button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Grid de imágenes y descripción */
+.image-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Centrar imagen y descripción */
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  text-align: center; /* Centrar el texto de la descripción */
+}
+
+/* Imagen centrada */
+.image-item img {
+  max-width: 80%; /* Ajustar el ancho según necesites */
+  max-height: 500px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px; /* Separar la imagen de la descripción */
+}
+
+/* Contenedor de la descripción centrada */
+.image-description {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Botones de navegación */
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  color: white;
+  border: none;
+  font-size: 40px; /* Aumentar el tamaño de la fuente */
+  cursor: pointer;
+  z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+  padding: 20px; /* Agregar padding para hacer los botones más grandes */
+  border-radius: 50%; /* Hacer los botones redondeados */
+  transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+  position: absolute; /* Fijar la posición */
+  top: 50%; /* Centrar verticalmente */
+}
+
+/* Botones a la izquierda */
+.nav-button.left {
+  left: 10px; /* Posición fija a la izquierda */
+}
+
+/* Botones a la derecha */
+.nav-button.right {
+  right: 10px; /* Posición fija a la derecha */
+}
+
+/* Efecto hover para los botones */
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Cambiar color de fondo al hacer hover */
+  transform: scale(1.1); /* Aumentar ligeramente el tamaño del botón */
+}
+
+/* Ajustar la navegación de la imagen para que use flex */
+.image-navigation {
+  display: flex; /* Usa flex para alinear los botones y la imagen */
+  align-items: center; /* Centra verticalmente los elementos */
+  position: relative; /* Para que los botones se posicionen relativos a este contenedor */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.image-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* Permitir que este contenedor crezca y ocupe el espacio disponible */
+  justify-content: center; /* Centrar verticalmente el contenido */
+}
+/* Estilos básicos para fade in */
+.fade-in-active {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards;
+}
+
+/* Animación de fade in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
