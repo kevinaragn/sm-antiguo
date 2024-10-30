@@ -86,7 +86,16 @@ const Gallery = ({ images, onClose }) => {
           </button>
         </div>
 
-        <div className="year-selector">
+
+
+      </div>
+    </div>
+  );
+};
+
+export default Gallery;
+
+        /* <div className="year-selector">
           {sortedYears.map((year, index) => (
             <button
               key={year}
@@ -96,10 +105,4 @@ const Gallery = ({ images, onClose }) => {
               {year}
             </button>
           ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Gallery;
+        </div>*/
