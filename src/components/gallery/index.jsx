@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
-import './styles.css'; // Asegúrate de importar los estilos necesarios
+import './styles.css';
 
 const Gallery = ({ images, onClose }) => {
   const [selectedYearIndex, setSelectedYearIndex] = useState(0);
   const years = [...new Set(images.flatMap((img) => Object.keys(img.years)))];
   const [selectedImages, setSelectedImages] = useState(images[0]?.years[years[0]] || []);
   const sortedYears = years.sort((a, b) => parseInt(a) - parseInt(b));
-
-  // Controlar qué imagen está actualmente mostrando su fade in
   const [fadeInKey, setFadeInKey] = useState(0);
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const handleYearChange = (index) => {
     setSelectedYearIndex(index);
@@ -28,11 +29,27 @@ const Gallery = ({ images, onClose }) => {
     }
   };
 
-  // Cada vez que cambien las imágenes, reiniciamos el efecto fade-in
   useEffect(() => {
-    // Incrementamos el key para forzar la reactivación del efecto
     setFadeInKey((prevKey) => prevKey + 1);
   }, [selectedImages, selectedYearIndex]);
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      goToNextYear();
+    }
+
+    if (touchEnd - touchStart > 75) {
+      goToPreviousYear();
+    }
+  };
 
   return (
     <div className="gallery-overlay">
@@ -41,7 +58,13 @@ const Gallery = ({ images, onClose }) => {
           <FaTimes size={30} />
         </button>
 
-        <div className="image-navigation">
+        <div
+          className="image-navigation"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Oculta los botones de navegación en móviles */}
           <button className="nav-button left" onClick={goToPreviousYear} disabled={selectedYearIndex === 0}>
             <FaArrowLeft size={30} />
           </button>
@@ -49,7 +72,7 @@ const Gallery = ({ images, onClose }) => {
           <div className="image-display">
             {selectedImages.map((image, index) => (
               <div
-                key={`${fadeInKey}-${index}`} // Key dinámica para reactivar el fade in siempre
+                key={`${fadeInKey}-${index}`}
                 className="image-item fade-in-active"
               >
                 <img src={image.src} alt={`Imagen del año ${sortedYears[selectedYearIndex]}`} className="gallery-image" />
