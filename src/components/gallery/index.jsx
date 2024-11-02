@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import './styles.css';
 
-const Gallery = ({ images, onClose }) => {
+const Gallery = ({ images, onClose, toggleMapInteraction }) => {
   const [selectedYearIndex, setSelectedYearIndex] = useState(0);
   const years = [...new Set(images.flatMap((img) => Object.keys(img.years)))];
   const [selectedImages, setSelectedImages] = useState(images[0]?.years[years[0]] || []);
   const sortedYears = years.sort((a, b) => parseInt(a) - parseInt(b));
   const [fadeInKey, setFadeInKey] = useState(0);
-
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+
+  useEffect(() => {
+    toggleMapInteraction(false); // Desactivar interacción del mapa cuando se abre la galería
+    return () => toggleMapInteraction(true); // Rehabilitar interacción cuando se cierra la galería
+  }, [toggleMapInteraction]);
 
   const handleYearChange = (index) => {
     setSelectedYearIndex(index);
@@ -64,7 +68,6 @@ const Gallery = ({ images, onClose }) => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Oculta los botones de navegación en móviles */}
           <button className="nav-button left" onClick={goToPreviousYear} disabled={selectedYearIndex === 0}>
             <FaArrowLeft size={30} />
           </button>
@@ -85,24 +88,9 @@ const Gallery = ({ images, onClose }) => {
             <FaArrowRight size={30} />
           </button>
         </div>
-
-
-
       </div>
     </div>
   );
 };
 
 export default Gallery;
-
-        /* <div className="year-selector">
-          {sortedYears.map((year, index) => (
-            <button
-              key={year}
-              onClick={() => handleYearChange(index)}
-              className={selectedYearIndex === index ? 'active' : ''}
-            >
-              {year}
-            </button>
-          ))}
-        </div>*/

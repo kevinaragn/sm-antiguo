@@ -19,7 +19,7 @@ const Sidebar = () => {
       >
         <h2 className="lg:text-2xl md:text-xl sm:text-lg font-bold text-gray-400 mb-4">San Miguel Antiguo</h2>
         <p className="lg:text-sm md:text-xs sm:text-xs mb-2">
-          Recopilación de fotos antiguas del centro de San Miguel desde la calle Irigoin hasta Pardo
+          Recopilación de fotos antiguas del centro de San Miguel desde la calle Av.Primera Junta hasta Pardo
         </p>
         <p className="lg:text-sm md:text-xs sm:text-xs mb-4">Tecnologías usadas: Leaflet y React</p>
         
@@ -38,7 +38,7 @@ const Sidebar = () => {
           className="fixed top-4 left-4 bg-gray-800 text-gray-400 p-2 rounded z-50"
           onClick={handleSlide}
         >
-          Mostrar Sidebar
+          San Miguel Antiguo
         </button>
       )}
     </>

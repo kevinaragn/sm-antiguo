@@ -1,5 +1,5 @@
 // src/components/map/MapComponent.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { MapContainer, ImageOverlay, useMap } from 'react-leaflet';
 import Markers from '../markers/index'; // Importa el componente del marcador
 import 'leaflet/dist/leaflet.css';
@@ -2182,25 +2182,25 @@ const markersData = [
           'Año desconocido': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215685/447706547_7789035831184903_2084047295973514450_n_rvxfuv.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980. La iglesia luterana estuvo desde el año 1925 hasta 1990... Luego de su demolición, se construyó un Shopping y años después el actual Bingo`
+              description: `Decada Aproximada: 1980.`
             },
           ],
           'Año desconocido (2)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215686/447870829_7789036084518211_3817369695329715364_n_cjh1ws.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980. La iglesia luterana estuvo desde el año 1925 hasta 1990... Luego de su demolición, se construyó un Shopping y años después el actual Bingo`
+              description: `Decada Aproximada: 1980.`
             },
           ],
           'Año desconocido (3)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215685/242532207_383499003310358_2990057469740973381_n_pn1fcf.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980. La iglesia luterana estuvo desde el año 1925 hasta 1990... Luego de su demolición, se construyó un Shopping y años después el actual Bingo`
+              description: `Decada Aproximada: 1980.`
             },
           ],
           'Año desconocido (4)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215686/447709869_7789035507851602_7241466093749171274_n_awziyd.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980. La iglesia luterana estuvo desde el año 1925 hasta 1990... Luego de su demolición, se construyó un Shopping y años después el actual Bingo`
+              description: `Decada Aproximada: 1980. `
             },
           ],
       
@@ -2270,9 +2270,14 @@ function ApplyBounds() {
   return null;
 }
 
-
 const MapComponent = () => {
+  const [isMapInteractable, setIsMapInteractable] = useState(true);
+
   const initialPosition = [650, 3900]; // Posición específica inicial del mapa
+
+  const toggleMapInteraction = (isInteractable) => {
+    setIsMapInteractable(isInteractable);
+  };
 
   return (
     <div
@@ -2291,8 +2296,8 @@ const MapComponent = () => {
         zoom={-2}
         minZoom={-1}
         maxZoom={1}
-        scrollWheelZoom={true}
-        dragging={true}
+        scrollWheelZoom={isMapInteractable} // Activar/Desactivar el zoom
+        dragging={isMapInteractable} // Activar/Desactivar el arrastre
         style={{ height: '100%', width: '100%' }}
         maxBounds={bounds}
         maxBoundsViscosity={1.0}
@@ -2314,7 +2319,7 @@ const MapComponent = () => {
             popupImageUrl={marker.popupImageUrl}
             galleryData={marker.galleryData} // Pasamos los datos de la galería
             isVisible={true}
-            popupDirection={marker.popupDirection} 
+            toggleMapInteraction={toggleMapInteraction} // Pasa la función al marcador
           />
         ))}
       </MapContainer>
