@@ -22,6 +22,7 @@ const Sidebar = () => {
           Recopilación de fotos antiguas del centro de San Miguel desde la calle Av.Primera Junta hasta Pardo
         </p>
         <p className="lg:text-sm md:text-xs sm:text-xs mb-4">Tecnologías usadas: Leaflet y React</p>
+        <p className="lg:text-sm md:text-xs sm:text-xs mb-4">https://www.linkedin.com/in/kevinaragn/</p>
         
         {/* Botón "Deslizar" */}
         <button
