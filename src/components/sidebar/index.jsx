@@ -12,7 +12,7 @@ const Sidebar = () => {
     <>
       {/* Sidebar */}
       <motion.div
-        className="fixed top-0 left-0 h-screen w-64 bg-gray-800 text-white flex-col p-4 box-border z-50"
+        className="fixed top-0 left-0 h-screen w-80 bg-gray-800 text-white flex-col p-4 box-border z-50"
         initial={{ x: '0%' }}
         animate={{ x: isOpen ? '0%' : '-100%' }}
         transition={{ type: 'tween', stiffness: 300 }}
@@ -22,7 +22,7 @@ const Sidebar = () => {
           Recopilación de fotos antiguas del centro de San Miguel desde la calle Av.Primera Junta hasta Pardo
         </p>
         <p className="lg:text-sm md:text-xs sm:text-xs mb-4">Tecnologías usadas: Leaflet y React</p>
-        <p className="lg:text-sm md:text-xs sm:text-xs mb-4">https://www.linkedin.com/in/kevinaragn/</p>
+        <p className="lg:text-sm md:text-xs sm:text-xs mb-4">https://www.linkedin.com/in/kevinaragn</p>
         
         {/* Botón "Deslizar" */}
         <button
