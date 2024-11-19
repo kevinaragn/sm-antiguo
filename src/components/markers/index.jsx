@@ -53,8 +53,8 @@ const Markers = ({ position, iconUrl, popupContent, popupImageUrl, galleryData, 
               src={popupImageUrl}
               alt="Imagen histórica"
               style={{
-                width: '200px',
-                height: 'auto',
+                width: '300px',
+                height: '320px',
                 borderRadius: '10px',
               }}
             />

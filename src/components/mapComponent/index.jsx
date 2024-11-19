@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import SetInitialView from '../setInitialView/index'; // Importa el nuevo componente
 
+
 const bounds = [[0, 0], [2394, 8192]];
 
 const markersData = [
@@ -101,7 +102,7 @@ const markersData = [
             { src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216167/1944_gff6lr.jpg', 
               description: '1944' },
             ],
-            "1950": [
+            '1950': [
               { src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727240383/decada_30_rdcsbs.jpg', 
                 description: '1950' },
               ],
@@ -113,7 +114,7 @@ const markersData = [
             { src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216166/153598986_3810775175677675_5160352493924135732_n_t4jz0l.jpg', 
               description: '1965' },
           ],
-          "1960's": [
+          '1960': [
             { src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216168/226629081_352215573105368_5403248384179603617_n_sq4g0q.jpg', 
               description: 'Decada del 60' },
           ],
@@ -293,7 +294,7 @@ const markersData = [
           '1979': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727480330/6851169b-be69-468e-8760-89550fa12cf9.png', // URL de la imagen de la galería
-              description: 'Año Aproximado 1979. Vista desde el edificio. Actual Instituto Mariano Moreno en construccion',
+              description: '1979.Vista desde el edificio hacia la estación.',
             },
           ],
           '1980': [
@@ -408,13 +409,13 @@ const markersData = [
           '1980': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215700/277774860_726738982020162_5028048171319446748_n_sltbym.jpg', // URL de la imagen de la galería
-              description: 'Decada Aproximada 1980',
+              description: 'Decada Aproximada:1980',
             },
           ],
           '1990': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215701/frente_a_la_plaza_uf7hx6.jpg', // URL de la imagen de la galería
-              description: 'Decada Aproximada 1990',
+              description: 'Decada Aproximada:1990',
             },
           ],
           // Puedes agregar más años con imágenes
@@ -461,6 +462,25 @@ const markersData = [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727489541/8d945fd7-7c93-42be-a223-03f1c2f2bf3b.png', // URL de la imagen de la galería
               description: '1937',
+            },
+          ],
+          
+        },
+      },
+    ],
+  },
+  {
+    position: [360, 3330], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Supermercado', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/chino/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1990': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860677/platinum_qpkqen.png', // URL de la imagen de la galería
+              description: 'Decada Aproximada: 1990',
             },
           ],
           
@@ -646,13 +666,13 @@ const markersData = [
           '1970 ': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215698/70_s_hsa3dx.jpg', // URL de la imagen de la galería
-              description: 'Decada Aproximada 1970',
+              description: 'Decada Aproximada:1970',
             },
           ],
           '2000': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215697/415737009_894470852213168_5625367883100689895_n_lpe2y3.jpg', // URL de la imagen de la galería
-              description: 'Decada Aproximada 2000',
+              description: 'Decada Aproximada:2000',
             }, 
           ],
          
@@ -679,7 +699,7 @@ const markersData = [
           '1939': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215696/1939_paclwq.jpg', // URL de la imagen de la galería
-              description: 'Decada Aproximada: 1939',
+              description: 'Decada Aproximada:1939',
             },
           ],
           '1970 2': [
@@ -860,7 +880,7 @@ const markersData = [
           ],
           '1970': [
             {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216156/1957_rpas0u.jpg', // URL de la imagen de la galería
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860561/424773742_7035501369879529_2112850824706054511_n_sdhtpi.jpg', // URL de la imagen de la galería
               description: 'Decada Aproximada: 1970 ',
             },
           ],
@@ -1007,6 +1027,12 @@ const markersData = [
               description: 'Decada Aproximada: 1970',
             },
           ],
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727478084/b1153cd2-83fd-4f52-9784-d9a792c05da3.png', // URL de la imagen de la galería
+              description: 'Decada Aproximada: 1980',
+            },
+          ],
        
           
          
@@ -1035,17 +1061,23 @@ const markersData = [
               description: 'Decada aproximada: 1930. Vista hacia Muñiz',
             },
           ],
+          '1940': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1731032851/4d287aee-588c-4c0a-8f00-605758ffd32f.png', // URL de la imagen de la galería
+              description: 'Decada aproximada: 1930. Vista hacia Muñiz',
+            },
+          ],
           '1939 (2)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727849179/72f92861-e663-4190-8ecc-334b3c726988.png', // URL de la imagen de la galería
-              description: `1939`,
+              description: `Decada aproximada: 1940. Esquina de actual MD-58`,
             },
           ],
          
           '1970': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216145/finales_de_los_60_mirando_hacia_mu%C3%B1iz_h9ts3x.jpg', // URL de la imagen de la galería
-              description: 'Decada aproximada: 1970. Vista hacia Muñiz',
+              description: 'Decada aproximada:1970',
             },
           ],
          
@@ -1058,7 +1090,7 @@ const markersData = [
     ],
   },
   {
-    position: [820, 4300], // Coordenadas del marcador [latitud, longitud]
+    position: [790, 4300], // Coordenadas del marcador [latitud, longitud]
     iconUrl: '/marker.png', // URL del ícono del marcador
     popupContent: 'Coppel', // Texto que aparecerá en el popup
     popupImageUrl: 'images/coppel/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
@@ -1081,7 +1113,7 @@ const markersData = [
     ],
   },
   {
-    position: [820, 4350], // Coordenadas del marcador [latitud, longitud]
+    position: [790, 4350], // Coordenadas del marcador [latitud, longitud]
     iconUrl: '/marker.png', // URL del ícono del marcador
     popupContent: 'Simplicity', // Texto que aparecerá en el popup
     popupImageUrl: 'images/simplicity/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
@@ -1323,7 +1355,7 @@ const markersData = [
     ],
   },
   {
-    position: [1050,3105], // Coordenadas del marcador [latitud, longitud]
+    position: [1050,3080], // Coordenadas del marcador [latitud, longitud]
     iconUrl: '/marker.png', // URL del ícono del marcador
     popupContent: 'Paunero y Tribulato', // Texto que aparecerá en el popup
     popupImageUrl: 'images/paunerocasitribulato/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
@@ -1561,6 +1593,27 @@ const markersData = [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216139/336855382_921464065642046_6359015330300180401_n_or91v0.jpg', // URL de la imagen de la galería
               description: 'Decada Aproximada: 1980',
+            },
+          ],
+         
+          
+          // Puedes agregar más años con imágenes
+        },
+      },
+    ],
+  },
+  {
+    position: [1320, 4740], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Barcelona III', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/barcelona/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860585/delia_y_rodriguez_pe%C3%B1a_w8qau3.jpg', // URL de la imagen de la galería
+              description: 'Decada Aproximada: 2000',
             },
           ],
          
@@ -1822,6 +1875,34 @@ const markersData = [
     ],
   },
   {
+    position: [1250, 5680], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Edificio Ibiza', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/conesaDelia/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '2000': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860581/conesa_y_delia_ahora_edificio_kmqah4.jpg', // URL de la imagen de la galería
+              description: 'Decada Aproximada: 2000',
+            },
+          ],
+         
+          '2001': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860582/conesa_y_delia_rcffvj.jpg', // URL de la imagen de la galería
+              description: 'Vista lateral',
+            },
+          ],
+         
+          
+          // Puedes agregar más años con imágenes
+        },
+      },
+    ],
+  },
+  {
     position: [610, 5770], // Coordenadas del marcador [latitud, longitud]
     iconUrl: '/marker.png', // URL del ícono del marcador
     popupContent: 'Plaza de las Carretas', // Texto que aparecerá en el popup
@@ -1933,6 +2014,28 @@ const markersData = [
     ],
   },
   {
+    position: [820, 3200], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Peron y Tribulato', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/peronTribulato/marker.png', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '2007': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860551/116669308_10223510953300856_447093683605046394_n_bnuxje.jpg', // URL de la imagen de la galería
+              description: '2007',
+            },
+          ],
+        
+         
+          
+          // Puedes agregar más años con imágenes
+        },
+      },
+    ],
+  },
+  {
 
       //[630, 7720]
 
@@ -1949,13 +2052,13 @@ const markersData = [
               description: '1933',
             },
           ],
-          'Año desconocido': [
+          '1934': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215690/450339913_1224970862196969_683635746110830884_n_aoi3kz.jpg', // URL de la imagen de la galería
               description: 'Año desconocido',
             },
           ],
-          'Año desconocido (2)': [
+          '1935': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215690/450346655_1224970998863622_4423694008286328072_n_vq8x1a.jpg', // URL de la imagen de la galería
               description: 'Año desconocido',
@@ -1967,9 +2070,10 @@ const markersData = [
               description: 'Decada aproximada: 1980',
             },
           ],
-          'Año desconocido (3)': [
+         
+          '1936': [
             {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215690/450346655_1224970998863622_4423694008286328072_n_vq8x1a.jpg', // URL de la imagen de la galería
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730861000/quinta_de_pardo_y_peron_creo_qe_es_la_de_norte_voacuy.jpg', // URL de la imagen de la galería
               description: 'Año desconocido',
             },
           ],
@@ -2139,7 +2243,7 @@ const markersData = [
         years: {
           '1980': [
             {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216161/383337922_845557347104519_1550706420223968267_n_tqhpxm.jpg', // URL de la imagen de la galería
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1731131527/ed689059-8d7b-43e8-9cbe-15403edf9b9b.png', // URL de la imagen de la galería
               description: 'Decada Aproximada: 1980',
             },
           ],
@@ -2182,25 +2286,25 @@ const markersData = [
           'Año desconocido': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215685/447706547_7789035831184903_2084047295973514450_n_rvxfuv.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980.`
+              description: `Decada Aproximada: 1980`
             },
           ],
           'Año desconocido (2)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215686/447870829_7789036084518211_3817369695329715364_n_cjh1ws.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980.`
+              description: `Decada Aproximada: 1980`
             },
           ],
           'Año desconocido (3)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215685/242532207_383499003310358_2990057469740973381_n_pn1fcf.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980.`
+              description: `Decada Aproximada: 1980`
             },
           ],
           'Año desconocido (4)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215686/447709869_7789035507851602_7241466093749171274_n_awziyd.jpg', // URL de la imagen de la galería
-              description: `Decada Aproximada: 1980. `
+              description: `Decada Aproximada: 1980`
             },
           ],
       
@@ -2255,7 +2359,351 @@ const markersData = [
       },
     ],
   },
+  {
+    position: [980,2200], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Juana Manso', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/juana/marker.png', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1966': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215837/349917467_1663076417477048_1268022789239665918_n_fbbbnl.jpg', // URL de la imagen de la galería
+              description: `1966`
+            },
+          ],
+         
+          '1967': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215826/187099561_307202107606715_8774918398448401543_n_yr3mdq.jpg', // URL de la imagen de la galería
+              description: `Decada aproximada: 1960`
+            },
+          ],
+         
+          '1968': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215826/188048090_307202070940052_3778418145927646312_n_mslcfk.jpg', // URL de la imagen de la galería
+              description: `Decada aproximada: 1960`
+            },
+          ],
+          '1971': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727472773/770ebf3f-ee31-4b5a-a2e3-ac50f677a842.png', // URL de la imagen de la galería
+              description: `Decada aproximada: 1960`
+            },
+          ],
+          '1970': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215873/350124823_1353693445196293_6064948690233563134_n_dpup6n.jpg', // URL de la imagen de la galería
+              description: `Decada aproximada: 1960`
+            },
+          ],
+         
+          '1989': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216133/456110443_1030122635314655_3261842664860288341_n_wofccs.jpg', // URL de la imagen de la galería
+              description: `Decada aproximada: 1980`
+            },
+          ],
+          '1972': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215827/310234503_630056178654638_8164981882263857386_n_jods9q.jpg', // URL de la imagen de la galería
+              description: `Decada aproximada: 1960`
+            },
+          ],
+         
+        
+         
+          // Puedes agregar más años con imágenes
+        },
+      },
+    ],
+  },
+  {
+    position: [1050,2200], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Arguero y Paunero', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/esquina/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1959': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215827/270423603_449956446664613_5285965587847369835_n_xcdo00.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1960`
+            },
+          ],
+          '1960': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216134/a%C3%B1o_desconocido_wgtfdi.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1960`
+            },
+          ],
+         
+        
+         
+          // Puedes agregar más años con imágenes
+        
+         
+          // Puedes agregar más años con imágenes
+        },
+      },
+    ],
+  },
+  {
+    position: [740, 4150], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Charlone casi esq.Peron', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/charlone1222/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1731031069/af02e9c4-f354-4ec9-8daf-6f6e8600b49c.png', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1980`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [810, 4120], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Peron esquina Charlone', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/confiteria2/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1940': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1731032224/abc4da10-7624-4f71-85cf-9dd3257b68fc.png', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1940`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [1400, 3570], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Av. Ricardo Balbin 900', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/mitre900/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1940': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1731033122/2151392d-0cae-4315-b90d-a559ba2df6e2.png', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1940`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [450, 3590], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Centro de Monitoreo', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/comisaria/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1970': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215693/401851218_2524324827749709_7354861456224720281_n_zpgmmk.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1970`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [820, 4400], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Burger King', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/burgerking/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730861002/soloDeportes_kdtxj8.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1966`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [770, 6250], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Av.León Gallardo 653', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/peron653/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860566/al_lado_del_cremolatti_de_mu%C3%B1iz_y7jzy5.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 2000`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [770, 6215], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Cremolatti', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/cremolatti/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860586/donde_esta_el_edificio_del_cremolatti_ixrhj9.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 2000`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [1060, 3570], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Paunero y Mitre', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/paunero/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860599/mitre_y_paunero_xqh3rp.png', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1960`
+            },
+          ],
+          '1990': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216170/1994_tmb_nwfde4.jpg', // URL de la imagen de la galería
+              description: `1994`
+            },
+          ],
+          '1991': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216170/1994_cbtfe9.jpg', // URL de la imagen de la galería
+              description: `1994`
+            },
+          ],
+          '1981': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216136/1980_fijarse_texto_wyxcp4.jpg', // URL de la imagen de la galería
+              description: `1980. De fondo, el Shopping Terrazas de Mayo.`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [1050,3160], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Dental Total', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/dental/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1970': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860623/paunero_y_tribulato_supuesatmente_decada_50_xwbuvz.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1950`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [1280,2780], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Vita', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/vita/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1970': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216189/325912128_547821954070029_5541562587931677339_n_i08gfr.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1970`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  {
+    position: [530,2510], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Roca y Sarmiento', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/rocasarmiento/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1970': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1731036208/b6c7163d-bd0e-4114-bc90-79607a198180.png', // URL de la imagen de la galería
+              description: `Decada Aproximada: 1980`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2267,6 +2715,30 @@ function ApplyBounds() {
   const map = useMap();
   map.setMaxBounds(bounds); // Aplicar los límites al cargar el mapa
   map.fitBounds(bounds); // Ajusta el mapa para que encaje dentro de los límites al cargar
+  return null;
+}
+
+function MapInteraction({ isInteractable }) {
+  const map = useMap();
+  
+  if (map) {
+    if (isInteractable) {
+      map.dragging.enable();
+      map.scrollWheelZoom.enable();
+      map.doubleClickZoom.enable();
+      map.touchZoom.enable();
+      map.keyboard.enable();
+      map.boxZoom.enable();
+    } else {
+      map.dragging.disable();
+      map.scrollWheelZoom.disable();
+      map.doubleClickZoom.disable();
+      map.touchZoom.disable();
+      map.keyboard.disable();
+      map.boxZoom.disable();
+    }
+  }
+  
   return null;
 }
 
@@ -2307,6 +2779,7 @@ const MapComponent = () => {
         <SetInitialView center={initialPosition} />
 
         <ApplyBounds />
+        <MapInteraction isInteractable={isMapInteractable} />
 
         <ImageOverlay url="/8k-image.jpg" bounds={bounds} />
 

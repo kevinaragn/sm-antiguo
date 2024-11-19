@@ -8,8 +8,6 @@ const Gallery = ({ images, onClose, toggleMapInteraction }) => {
   const [selectedImages, setSelectedImages] = useState(images[0]?.years[years[0]] || []);
   const sortedYears = years.sort((a, b) => parseInt(a) - parseInt(b));
   const [fadeInKey, setFadeInKey] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     toggleMapInteraction(false); // Desactivar interacción del mapa cuando se abre la galería
@@ -37,24 +35,6 @@ const Gallery = ({ images, onClose, toggleMapInteraction }) => {
     setFadeInKey((prevKey) => prevKey + 1);
   }, [selectedImages, selectedYearIndex]);
 
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 75) {
-      goToNextYear();
-    }
-
-    if (touchEnd - touchStart > 75) {
-      goToPreviousYear();
-    }
-  };
-
   return (
     <div className="gallery-overlay">
       <div className="gallery-container">
@@ -62,15 +42,13 @@ const Gallery = ({ images, onClose, toggleMapInteraction }) => {
           <FaTimes size={30} />
         </button>
 
-        <div
-          className="image-navigation"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <button className="nav-button left" onClick={goToPreviousYear} disabled={selectedYearIndex === 0}>
-            <FaArrowLeft size={30} />
-          </button>
+        <div className="image-navigation">
+          {/* Condicional para el botón izquierdo */}
+          {selectedYearIndex > 0 && (
+            <button className="nav-button left" onClick={goToPreviousYear}>
+              <FaArrowLeft size={30} />
+            </button>
+          )}
 
           <div className="image-display">
             {selectedImages.map((image, index) => (
@@ -84,9 +62,12 @@ const Gallery = ({ images, onClose, toggleMapInteraction }) => {
             ))}
           </div>
 
-          <button className="nav-button right" onClick={goToNextYear} disabled={selectedYearIndex === sortedYears.length - 1}>
-            <FaArrowRight size={30} />
-          </button>
+          {/* Condicional para el botón derecho */}
+          {selectedYearIndex < sortedYears.length - 1 && (
+            <button className="nav-button right" onClick={goToNextYear}>
+              <FaArrowRight size={30} />
+            </button>
+          )}
         </div>
       </div>
     </div>

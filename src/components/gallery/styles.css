@@ -181,13 +181,13 @@
 
 /* Posicionar flecha izquierda en la parte superior del gallery container */
 .nav-button.left {
-  top: -80px; /* Ajusta la distancia del borde superior según sea necesario */
+  top: -110px; /* Ajusta la distancia del borde superior según sea necesario */
   left: 10px; /* Ajustar según lo necesites */
 }
 
 /* Posicionar flecha derecha en la parte inferior del gallery container */
 .nav-button.right {
-  top: 290px; /* Ajusta la distancia del borde inferior según sea necesario */
+  top: 320px; /* Ajusta la distancia del borde inferior según sea necesario */
   right: 10px; /* Ajustar según lo necesites */
 }
 
