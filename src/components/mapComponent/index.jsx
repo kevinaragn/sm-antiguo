@@ -1,10 +1,9 @@
 // src/components/map/MapComponent.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, ImageOverlay, useMap } from 'react-leaflet';
 import Markers from '../markers/index'; // Importa el componente del marcador
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import SetInitialView from '../setInitialView/index'; // Importa el nuevo componente
 
 
 const bounds = [[0, 0], [2394, 8192]];
@@ -208,7 +207,7 @@ const markersData = [
         years: {
           '1940': [
             {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216183/279028870_5138005812954598_3485794611055088711_n_egeesu.jpg', // URL de la imagen de la galería
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1732458658/f151e6fc-a5cc-4779-8665-be27eb76b9e0.png', // URL de la imagen de la galería
               description: 'Decada del 40',
             },
           ],
@@ -761,10 +760,10 @@ const markersData = [
     galleryData: [
       {
         years: {
-          '1960': [
+          '1968': [
             {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216159/60_s_i495sa.jpg', // URL de la imagen de la galería
-              description: 'Decada Aproximada: 1960',
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1732680164/6a77910d-2c35-4359-9197-5ca4faa54dbe.png', // URL de la imagen de la galería
+              description: '1968',
             },
           ],
           '1970': [
@@ -844,12 +843,7 @@ const markersData = [
               description: 'Decada Aproximada: 1970',
             },
           ],
-          '1970 (2)': [
-            {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727842999/267f462b-9161-4b1a-ad29-93d5aa0765d5.png', // URL de la imagen de la galería
-              description: 'Decada Aproximada: 1970. Vista hacia Muñiz',
-            },
-          ],
+          
           '1938': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727843223/93a85380-4ffd-465b-ae62-6ac78240ea0e.png', // URL de la imagen de la galería
@@ -968,16 +962,17 @@ const markersData = [
               description: '1964',
             },
           ],
-          '1997': [
-            {
-              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216148/1997_f6t73t.jpg', // URL de la imagen de la galería
-              description: '1997',
-            },
-          ],
+          
           '1940': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727856348/83b7de2e-87ea-4a7c-ad4e-b8e2ccec8c25.png', // URL de la imagen de la galería
               description: 'Esquina de Idolo. 1940',
+            },
+          ],
+          '1970': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1732679939/1968_Av_Le%C3%B3n_Gallardo_y_Belgrano_6400_ppp_1_qv5gut.jpg', // URL de la imagen de la galería
+              description: '1968',
             },
           ],
           
@@ -1183,7 +1178,7 @@ const markersData = [
           '2010 (2)': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216180/313439004_655671892759733_6153316342889460635_n_pcpp9l.jpg', // URL de la imagen de la galería
-              description: 'Demolida en 2014. 2010',
+              description: 'Decada Aproximada: 2010',
             },
           ],
         
@@ -1864,7 +1859,7 @@ const markersData = [
           '2000': [
             {
               src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215694/Conesa_1288_demolido_en_2015_ion9j3.png', // URL de la imagen de la galería
-              description: 'Decada Aproximada: 2000 . Demolida en 2013',
+              description: 'Decada Aproximada: 2000',
             },
           ],
          
@@ -2524,9 +2519,9 @@ const markersData = [
     ],
   },
   {
-    position: [820, 4400], // Coordenadas del marcador [latitud, longitud]
+    position: [825, 4410], // Coordenadas del marcador [latitud, longitud]
     iconUrl: '/marker.png', // URL del ícono del marcador
-    popupContent: 'Burger King', // Texto que aparecerá en el popup
+    popupContent: 'Grid', // Texto que aparecerá en el popup
     popupImageUrl: 'images/burgerking/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
     galleryData: [
       {
@@ -2667,6 +2662,120 @@ const markersData = [
       },
     ],
   },
+  {
+    position: [1050, 4150], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Charlone y Paunero', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/pelicula/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1732161443/0d92916a-deaa-463d-a008-728a18986b9c.png', // URL de la imagen de la galería
+              description: `1980`
+            },
+          ],
+          '1981': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1732161961/74628354-671e-45d0-8ae6-e3b5f53393ef.png', // URL de la imagen de la galería
+              description: `1980`
+            },
+          ],
+       },
+      },
+    ],
+  },
+  
+  {
+    position: [820, 3240], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Rock It y Patolandia', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/rockit/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860573/Captura_de_pantalla_2024-10-04_223031_oqqgrd.png', // URL de la imagen de la galería
+              description: `1980`
+            },
+          ],
+          
+       },
+      },
+    ],
+  },
+  
+  {
+    position: [310, 6170], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Estación Muñiz', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/estacionMuñiz/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215699/Captura_de_pantalla_2024-09-21_022816_z5e2hm.jpg', // URL de la imagen de la galería
+              description: `1980`
+            },
+          ],
+          '1981': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727215699/DllKt-LSH_1256x620__1_qymkqq.jpg', // URL de la imagen de la galería
+              description: `1980`
+            },
+          ],
+          '1982': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1727216170/Captura_de_pantalla_2024-09-21_022903_ghkofq.png', // URL de la imagen de la galería
+              description: `1980`
+            },
+          ],
+          
+       },
+      },
+    ],
+  },
+  
+  {
+    position: [820, 5700], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Peron y Conesa', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/abuelo/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1730860564/al_lado_del_banco_ciudad_sin_a%C3%B1o_sobre_peron_hyku2x.jpg', // URL de la imagen de la galería
+              description: `Decada Aproximada: 2000`
+            },
+          ],
+      
+       },
+      },
+    ],
+  },
+  {
+    position: [1050, 4200], // Coordenadas del marcador [latitud, longitud]
+    iconUrl: '/marker.png', // URL del ícono del marcador
+    popupContent: 'Charlone y Paunero', // Texto que aparecerá en el popup
+    popupImageUrl: 'images/carrera/marker.jpg', // URL de la imagen que aparecerá en el popup (opcional)
+    galleryData: [
+      {
+        years: {
+          '1980': [
+            {
+              src: 'https://res.cloudinary.com/dhc0kdmfp/image/upload/v1732852331/a6529cfd-7203-4473-ad82-57e4f9251ac8.png', // URL de la imagen de la galería
+              description: `Decada aproximada: 1950`
+            },
+          ],
+       },
+      },
+    ],
+  },
   
 ];
 
@@ -2713,15 +2822,19 @@ const markersData = [
 
 function ApplyBounds() {
   const map = useMap();
-  map.setMaxBounds(bounds); // Aplicar los límites al cargar el mapa
-  map.fitBounds(bounds); // Ajusta el mapa para que encaje dentro de los límites al cargar
+
+  useEffect(() => {
+    map.setMaxBounds(bounds); // Aplicar los límites
+    map.fitBounds(bounds);    // Ajustar el mapa dentro de los límites
+  }, [map]);
+
   return null;
 }
 
 function MapInteraction({ isInteractable }) {
   const map = useMap();
-  
-  if (map) {
+
+  useEffect(() => {
     if (isInteractable) {
       map.dragging.enable();
       map.scrollWheelZoom.enable();
@@ -2737,15 +2850,15 @@ function MapInteraction({ isInteractable }) {
       map.keyboard.disable();
       map.boxZoom.disable();
     }
-  }
-  
+  }, [isInteractable, map]);
+
   return null;
 }
 
 const MapComponent = () => {
   const [isMapInteractable, setIsMapInteractable] = useState(true);
 
-  const initialPosition = [650, 3900]; // Posición específica inicial del mapa
+  const initialPosition = [650, 3900]; // Posición inicial específica
 
   const toggleMapInteraction = (isInteractable) => {
     setIsMapInteractable(isInteractable);
@@ -2764,25 +2877,21 @@ const MapComponent = () => {
       }}
     >
       <MapContainer
-        center={[1733, 4096]}
+        center={initialPosition}
         zoom={-2}
         minZoom={-1}
         maxZoom={1}
-        scrollWheelZoom={isMapInteractable} // Activar/Desactivar el zoom
-        dragging={isMapInteractable} // Activar/Desactivar el arrastre
+        scrollWheelZoom={isMapInteractable}
+        dragging={isMapInteractable}
         style={{ height: '100%', width: '100%' }}
         maxBounds={bounds}
         maxBoundsViscosity={1.0}
         crs={L.CRS.Simple}
         zoomControl={false}
       >
-        <SetInitialView center={initialPosition} />
-
         <ApplyBounds />
         <MapInteraction isInteractable={isMapInteractable} />
-
         <ImageOverlay url="/8k-image.jpg" bounds={bounds} />
-
         {markersData.map((marker, index) => (
           <Markers
             key={index}
@@ -2790,9 +2899,9 @@ const MapComponent = () => {
             iconUrl={marker.iconUrl}
             popupContent={marker.popupContent}
             popupImageUrl={marker.popupImageUrl}
-            galleryData={marker.galleryData} // Pasamos los datos de la galería
+            galleryData={marker.galleryData}
             isVisible={true}
-            toggleMapInteraction={toggleMapInteraction} // Pasa la función al marcador
+            toggleMapInteraction={toggleMapInteraction}
           />
         ))}
       </MapContainer>
