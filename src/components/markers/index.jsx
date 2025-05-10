@@ -1,4 +1,3 @@
-// src/components/markers/index.jsx
 import React, { useState } from 'react';
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
@@ -6,21 +5,28 @@ import Gallery from '../gallery';
 import 'leaflet/dist/leaflet.css';
 import '../markers/styles.css';
 
-const Markers = ({ position, iconUrl, popupContent, popupImageUrl, galleryData, isVisible, popupDirection = 'up'  }) => {
+const Markers = ({ position, iconUrl, popupContent, popupImageUrl, galleryData, isVisible, popupDirection = 'up', toggleMapInteraction }) => {
   const [hover, setHover] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
-
-
-
 
   const customIcon = L.icon({
     iconUrl: iconUrl,
     iconSize: hover ? [50, 50] : [40, 40],
     iconAnchor: [20, 40],
-    popupAnchor: [0, -40], // Cambia el ancla dependiendo de la dirección
+    popupAnchor: [0, -40],
     className: hover ? 'hovered-icon' : '',
   });
+
+  const openGallery = () => {
+    setShowGallery(true);
+    toggleMapInteraction(false); // Desactivar interacción del mapa
+  };
+
+  const closeGallery = () => {
+    setShowGallery(false);
+    toggleMapInteraction(true); // Rehabilitar interacción del mapa
+  };
 
   return (
     <Marker
@@ -47,14 +53,14 @@ const Markers = ({ position, iconUrl, popupContent, popupImageUrl, galleryData, 
               src={popupImageUrl}
               alt="Imagen histórica"
               style={{
-                width: '200px',
-                height: 'auto',
+                width: '300px',
+                height: '320px',
                 borderRadius: '10px',
               }}
             />
             <button
               className="custom-button"
-              onClick={() => setShowGallery(true)}
+              onClick={openGallery} // Abrir la galería
             >
               Ver imágenes históricas
             </button>
@@ -64,7 +70,8 @@ const Markers = ({ position, iconUrl, popupContent, popupImageUrl, galleryData, 
       {showGallery && (
         <Gallery
           images={galleryData}
-          onClose={() => setShowGallery(false)}
+          onClose={closeGallery}
+          toggleMapInteraction={toggleMapInteraction}
         />
       )}
     </Marker>
